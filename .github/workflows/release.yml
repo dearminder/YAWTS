@@ -1,7 +1,6 @@
-# Builds a signed APK and publishes it as a GitHub release when a version tag is pushed:
-#   git tag v0.9.0 && git push origin v0.9.0
-# The tag must match versionName in app/build.gradle.kts; a tag with a suffix (v1.0.0-beta1) becomes a pre-release.
-# To rerun it for an existing tag: Actions > Release > Run workflow, and pick the tag under "Use workflow from".
+# Builds a signed APK and publishes it as a GitHub release on every push to main (or by hand: Actions > Release > Run workflow).
+# The version goes up by itself: 1.0.1, 1.0.2, 1.0.3... (the last release's version + 1). Nothing to bump or tag by hand.
+# versionCode is the commit count, so every release installs as an update.
 #
 # Repository secrets (Settings > Secrets and variables > Actions):
 #   SIGNING_KEYSTORE_BASE64  the release keystore, base64-encoded (base64 -w0 release.jks)
@@ -12,8 +11,12 @@ name: Release
 
 on:
   push:
-    tags: ['v*']
+    branches: [main]
+    paths-ignore: ['**.md']
   workflow_dispatch:
+
+# Two quick pushes would otherwise both pick the same version.
+concurrency: release
 
 permissions:
   contents: write
@@ -23,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # the whole history and tags, for the commit count and the last version
 
       - uses: actions/setup-java@v5
         with:
@@ -31,14 +36,17 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v5
 
-      - name: Check the tag matches versionName
+      - name: Work out the version
         run: |
-          version=$(sed -nE 's/^\s*versionName = "(.*)"/\1/p' app/build.gradle.kts)
-          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
-            echo "::error::Tag $GITHUB_REF_NAME doesn't match versionName \"$version\" in app/build.gradle.kts"
-            exit 1
+          count=$(git rev-list --count HEAD)
+          last=$(git tag -l | sed 's/^v//' | grep -E '^[0-9]+\.[0-9]+\.[0-9]+$' | sort -V | tail -n1)
+          if [ -z "$last" ]; then
+            version=1.0.1
+          else
+            version="${last%.*}.$(( ${last##*.} + 1 ))"
           fi
           echo "VERSION=$version" >> "$GITHUB_ENV"
+          echo "VERSION_CODE=$count" >> "$GITHUB_ENV"
 
       - name: Decode the signing keystore
         env:
@@ -58,7 +66,7 @@ jobs:
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
         run: |
           chmod +x gradlew
-          ./gradlew testDebugUnitTest assembleRelease
+          ./gradlew testDebugUnitTest assembleRelease -PappVersionName="$VERSION" -PappVersionCode="$VERSION_CODE"
 
       - name: Upload reports
         if: failure()
@@ -74,10 +82,8 @@ jobs:
           apk="YAWTS-$VERSION.apk"
           cp app/build/outputs/apk/release/app-release.apk "$apk"
           sha256sum "$apk" > "$apk.sha256"
-          prerelease=""
-          case "$VERSION" in *-*) prerelease="--prerelease" ;; esac
-          gh release create "$GITHUB_REF_NAME" "$apk" "$apk.sha256" \
-            --title "YAWTS $VERSION" --generate-notes --verify-tag $prerelease
+          gh release create "$VERSION" "$apk" "$apk.sha256" --target "$GITHUB_SHA" \
+            --title "YAWTS $VERSION" --generate-notes
 
       - name: Remove the keystore
         if: always()

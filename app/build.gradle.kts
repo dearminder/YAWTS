@@ -11,8 +11,9 @@ android {
         applicationId = "com.dearminder.yawts"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        // Set by the release workflow (.github/workflows/release.yml) from the tag or the commit count.
+        versionCode = (findProperty("appVersionCode") as String?)?.toInt() ?: 1
+        versionName = findProperty("appVersionName") as String? ?: "dev"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
