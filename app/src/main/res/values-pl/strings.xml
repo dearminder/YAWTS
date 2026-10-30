@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cd_settings">Ustawienia</string>
+    <string name="cd_stop_server">Zatrzymaj serwer</string>
+    <string name="cd_start_server">Uruchom serwer</string>
+    <string name="cd_back">Wstecz</string>
+    <string name="cd_share">Udostępnij link</string>
+
+    <!-- Ekran główny -->
+    <string name="main_hint">Dotknij przycisku, aby uruchomić serwer dostępny przez Wi-Fi. Pokazany adres otwórz w dowolnej przeglądarce w tej samej sieci.</string>
+    <string name="toast_copied">Skopiowano do schowka</string>
+    <string name="server_link_label">Otwórz w przeglądarce (dotknij, aby skopiować)</string>
+    <string name="webdav_link_label">Dysk sieciowy (dotknij, aby skopiować)</string>
+    <string name="error_no_ip">Nie udało się ustalić adresu IP. Sprawdź, czy telefon jest połączony z Wi-Fi albo ma włączony hotspot.</string>
+    <string name="error_port_unavailable">Nie udało się uruchomić serwera na porcie %1$d - może być już w użyciu. Wybierz inny port w ustawieniach.</string>
+    <string name="error_https_failed">Nie udało się skonfigurować HTTPS na tym urządzeniu, serwer działa przez HTTP.</string>
+    <string name="restart_needed">Uruchom serwer ponownie, aby zastosować nowe ustawienia.</string>
+    <string name="share_chooser_title">Udostępnij link do serwera</string>
+
+    <string name="settings_title">Ustawienia</string>
+
+    <!-- Sekcja: Serwer -->
+    <string name="settings_section_server">Serwer</string>
+    <string name="port_label">Port</string>
+    <string name="port_helper">Zmiana obowiązuje od następnego uruchomienia serwera.</string>
+    <string name="port_invalid">Podaj port od %1$d do %2$d.</string>
+    <string name="password_label">Hasło</string>
+    <string name="password_helper">Puste = dostęp dla każdego w sieci.</string>
+    <string name="password_show">Pokaż</string>
+    <string name="password_hide">Ukryj</string>
+    <string name="https_switch_label">Używaj HTTPS</string>
+    <string name="https_helper">Bez własnego certyfikatu generowany jest samopodpisany, więc przeglądarka pokaże ostrzeżenie - to normalne, wystarczy potwierdzić. Windows zmapuje dysk HTTPS tylko z certyfikatem, któremu ufa.</string>
+
+    <!-- Sekcja: WebDAV -->
+    <string name="settings_section_webdav">Dysk sieciowy (WebDAV)</string>
+    <string name="settings_webdav_enable_label">Pozwól podłączyć jako dysk sieciowy</string>
+
+    <!-- Sekcja: Bezpieczeństwo -->
+    <string name="settings_section_security">Bezpieczeństwo</string>
+    <string name="settings_allow_delete_label">Zezwól na usuwanie plików</string>
+    <string name="settings_allow_delete_helper">Dotyczy strony WWW i dysku sieciowego.</string>
+
+    <!-- Sekcja: Język -->
+    <string name="settings_section_language">Język</string>
+    <string name="language_system">Domyślny systemowy</string>
+
+    <!-- Sekcja: Format daty -->
+    <string name="settings_section_date">Format daty</string>
+    <string name="settings_date_format_label">Data na stronie WWW</string>
+
+    <!-- Sekcja: Wygląd -->
+    <string name="settings_section_appearance">Wygląd</string>
+    <string name="settings_theme_label">Motyw</string>
+    <string name="theme_system">Systemowy</string>
+    <string name="theme_light">Jasny</string>
+    <string name="theme_dark">Ciemny</string>
+    <string name="settings_dynamic_color_label">Kolor dynamiczny (Material You)</string>
+    <string name="settings_dynamic_color_helper">Dopasowuje kolory aplikacji do Twojej tapety.</string>
+
+    <!-- Sekcja: Powiadomienia -->
+    <string name="settings_section_notifications">Powiadomienia</string>
+    <string name="notifications_granted">Powiadomienia są włączone.</string>
+    <string name="notifications_not_granted">Powiadomienia są wyłączone - nie zobaczysz adresu serwera ani przycisku Zatrzymaj, w powiadomieniu.</string>
+    <string name="notifications_open_settings">Otwórz ustawienia powiadomień</string>
+
+    <!-- Ekrany uprawnień przy pierwszym uruchomieniu -->
+    <string name="onboarding_storage_title">Zezwól na dostęp do plików</string>
+    <string name="onboarding_storage_description">YAWTS potrzebuje pełnego dostępu do pamięci, aby przeglądać, udostępniać i odbierać Twoje pliki. Włącz uprawnienie i wróć tutaj.</string>
+    <string name="onboarding_grant_access">Przyznaj dostęp</string>
+    <string name="onboarding_notifications_title">Włącz powiadomienia</string>
+    <string name="onboarding_notifications_description">Gdy serwer działa, YAWTS pokazuje powiadomienie z jego adresem i przyciskiem Zatrzymaj.</string>
+    <string name="onboarding_enable_notifications">Włącz powiadomienia</string>
+    <string name="onboarding_skip">Nie teraz</string>
+
+    <!-- Powiadomienie usługi w tle -->
+    <string name="notif_channel_name">Serwer w tle</string>
+    <string name="notif_starting">Uruchamianie serwera…</string>
+    <string name="notif_title">YAWTS działa</string>
+    <string name="notif_open_url">Otwórz %1$s</string>
+    <string name="notif_no_ip">Pliki są udostępniane w sieci lokalnej</string>
+    <string name="notif_stop_action">Zatrzymaj</string>
+
+    <!-- Własny certyfikat HTTPS -->
+    <string name="cert_label">Certyfikat HTTPS</string>
+    <string name="cert_generated">Wygenerowany automatycznie (samopodpisany)</string>
+    <string name="cert_custom">Własny: %1$s, ważny do %2$s</string>
+    <string name="cert_load">Wczytaj .p12 / .pfx</string>
+    <string name="cert_remove">Użyj wygenerowanego</string>
+    <string name="cert_helper">Plik PKCS#12 z certyfikatem i kluczem prywatnym. Z plików PEM: openssl pkcs12 -export -legacy -in cert.pem -inkey key.pem -out cert.p12</string>
+    <string name="cert_password_title">Hasło certyfikatu</string>
+    <string name="cert_invalid">Nieprawidłowe hasło albo plik nie jest certyfikatem z kluczem prywatnym.</string>
+    <string name="cert_loaded">Wczytano certyfikat. Uruchom serwer ponownie, aby go użyć.</string>
+    <string name="cert_read_failed">Nie udało się odczytać pliku.</string>
+
+    <!-- Nazwa urządzenia i wykrywanie -->
+    <string name="device_name_label">Nazwa urządzenia</string>
+    <string name="device_name_preview">Widoczne jako: %1$s</string>
+    <string name="device_name_helper" formatted="false">Własny tekst używany w tytule strony WWW i w sieci. Dostępne symbole:</string>
+    <string name="discovery_label">Widoczny w sieci</string>
+    <string name="discovery_helper">Ogłasza telefon przez SSDP/UPnP i DNS-SD (Bonjour)</string>
+
+    <!-- Miniatury -->
+    <string name="thumbnails_label">Miniatury na stronie WWW</string>
+    <string name="thumbnails_helper">Pokazuje miniatury zdjęć i okładki utworów na liście plików. Obciąża urządzenie.</string>
+
+    <!-- O aplikacji i opcje deweloperskie -->
+    <string name="about_version">Wersja %1$s</string>
+    <string name="cd_github">Otwórz w GitHubie</string>
+
+    <!-- Aktualizacje -->
+    <string name="settings_section_updates">Aktualizacje</string>
+    <string name="update_auto_label">Sprawdzaj aktualizacje przy starcie</string>
+    <string name="update_auto_helper">Szuka nowszego wydania na GitHubie przy otwarciu aplikacji</string>
+    <string name="update_check">Sprawdź teraz</string>
+    <string name="update_installed">Zainstalowana wersja: %1$s</string>
+    <string name="update_checking">Sprawdzanie aktualizacji…</string>
+    <string name="update_up_to_date">Masz najnowszą wersję</string>
+    <string name="update_check_failed">Nie udało się sprawdzić aktualizacji</string>
+    <string name="update_available_short">Dostępna wersja %1$s</string>
+    <string name="update_available_title">Dostępna aktualizacja</string>
+    <string name="update_available_text">Dostępna jest wersja %1$s (masz %2$s).</string>
+    <string name="update_install">Pobierz i zainstaluj</string>
+    <string name="update_open_page">Otwórz stronę wydania</string>
+    <string name="update_later">Później</string>
+    <string name="update_downloading">Pobieranie…</string>
+    <string name="update_download_failed">Pobieranie nie powiodło się</string>
+    <plurals name="dev_taps_left">
+        <item quantity="one">Jeszcze %d kliknięcie do odblokowania opcji deweloperskich</item>
+        <item quantity="few">Jeszcze %d kliknięcia do odblokowania opcji deweloperskich</item>
+        <item quantity="many">Jeszcze %d kliknięć do odblokowania opcji deweloperskich</item>
+        <item quantity="other">Jeszcze %d kliknięcia do odblokowania opcji deweloperskich</item>
+    </plurals>
+    <string name="dev_unlocked">Odblokowano opcje deweloperskie</string>
+    <string name="dev_already_unlocked">Nic tu więcej nie ma</string>
+    <string name="settings_section_developer">Opcje deweloperskie</string>
+    <string name="dev_crash_reports_label">Zapisuj raporty awarii</string>
+    <string name="dev_crash_reports_helper">Gdy aplikacja się wysypie albo serwer trafi na nieoczekiwany błąd, szczegóły trafią do pliku.</string>
+    <string name="dev_server_logs_label">Zapisuj logi serwera</string>
+    <string name="dev_server_logs_helper">Każde żądanie (adres, metoda, ścieżka, status, czas) i błędy serwera, jeden plik na dzień.</string>
+    <string name="dev_logs_location">Zapisywane w %1$s - dostępne też przez stronę WWW.</string>
+    <string name="dev_hide">Wyłącz opcje deweloperskie</string>
+</resources>

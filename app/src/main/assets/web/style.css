@@ -1,0 +1,161 @@
+:root {
+  --bg: #fffbfe; --surface: #f4eff7; --surface-2: #e9e2ef; --text: #1c1b1f; --muted: #625d68;
+  --accent: #6750a4; --on-accent: #fff; --border: #e0d9e6; --danger: #b3261e; --sel: #eaddff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141218; --surface: #1f1d23; --surface-2: #2b2930; --text: #e6e1e5; --muted: #a9a3b0;
+    --accent: #d0bcff; --on-accent: #381e72; --border: #322f37; --danger: #f2b8b5; --sel: #3b3348;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141218; --surface: #1f1d23; --surface-2: #2b2930; --text: #e6e1e5; --muted: #a9a3b0;
+  --accent: #d0bcff; --on-accent: #381e72; --border: #322f37; --danger: #f2b8b5; --sel: #3b3348;
+}
+
+* { box-sizing: border-box; }
+:root { --bar-h: 58px; }
+
+/* Icons from the inline sprite in index.html: they take the text color and size. */
+.i { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+.i.small { width: 16px; height: 16px; vertical-align: -3px; margin-left: 2px; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+main { max-width: 1100px; margin: 0 auto; padding: 0 16px 32px; }
+.muted { color: var(--muted); font-size: 0.85rem; }
+.error { color: var(--danger); }
+
+.bar {
+  position: sticky; top: 0; z-index: 3; display: flex; align-items: center; gap: 8px;
+  height: var(--bar-h); padding: 0 16px; background: var(--bg); border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: flex; align-items: center; gap: 10px; min-width: 0; margin-right: auto;
+  font-weight: 700; font-size: 1.1rem; color: var(--text);
+}
+.brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.brand img { border-radius: 7px; flex-shrink: 0; }
+.search {
+  flex: 0 1 260px; min-width: 0; padding: 8px 12px; border-radius: 20px;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 8px 14px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--text); font: inherit; font-size: 0.9rem;
+  cursor: pointer; white-space: nowrap; user-select: none;
+}
+.btn:hover { background: var(--surface-2); }
+.btn:disabled { opacity: 0.4; cursor: default; pointer-events: none; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; }
+.btn.danger { color: var(--danger); border-color: var(--danger); }
+.btn.icon { width: 38px; height: 38px; padding: 0; border-radius: 50%; }
+.btn.small { padding: 4px 10px; font-size: 0.85rem; }
+.btn.icon.small { width: 32px; height: 32px; padding: 0; }
+
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+.login { max-width: 340px; margin: 14vh auto 0; text-align: center; display: grid; gap: 12px; }
+.login h1 { margin: 0; }
+.login p { margin: 0; }
+.login input {
+  padding: 12px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); font: inherit;
+}
+.login .btn { padding: 12px; }
+
+.crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 14px 0 8px; }
+.crumb { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 8px; color: var(--text); overflow-wrap: anywhere; }
+.crumb:hover { background: var(--surface); }
+.crumb:last-child { font-weight: 600; }
+.sep { color: var(--muted); width: 18px; height: 18px; }
+
+/* Toolbar, counters and column headers stay under the top bar while the list scrolls. */
+.sticky { position: sticky; top: var(--bar-h); z-index: 2; background: var(--bg); padding-top: 4px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 4px 0 12px; }
+.spacer { flex: 1; }
+
+.infobar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px;
+  /* Right edge lines up with the Size column: row padding + action column + gap. */
+  padding: 0 54px 6px 10px;
+  font-variant-numeric: tabular-nums;
+}
+#summary { text-align: right; margin-left: auto; }
+
+.uploads { margin-bottom: 12px; padding: 12px 16px; }
+.uploads-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; font-size: 0.85rem; }
+.progress { height: 6px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+#progressBar { height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
+
+.table { position: relative; border: 2px dashed transparent; border-radius: 16px; }
+.table.dragging { border-color: var(--accent); }
+.drophint {
+  display: none; position: absolute; inset: 0; align-items: center; justify-content: center;
+  background: color-mix(in srgb, var(--bg) 85%, transparent); color: var(--accent); font-weight: 600; border-radius: 14px;
+}
+.table.dragging .drophint { display: flex; }
+
+#list { list-style: none; margin: 0; padding: 0; }
+.row { display: flex; align-items: center; gap: 12px; padding: 6px 10px; border-radius: 10px; cursor: default; }
+#list .row:hover { background: var(--surface); }
+#list .row.sel { background: var(--sel); }
+.row.head { border-bottom: 1px solid var(--border); border-radius: 0; padding-top: 4px; padding-bottom: 4px; }
+.sort { background: none; border: 0; padding: 4px 0; font: inherit; font-size: 0.85rem; color: var(--muted); cursor: pointer; text-align: inherit; }
+.sort.active { color: var(--accent); font-weight: 600; }
+/* The Name header is also a .c-name (a column, for name + meta in rows) - keep its arrow beside the text. */
+.row.head .c-name { flex-direction: row; align-items: center; }
+
+.c-check { width: 20px; flex-shrink: 0; display: flex; }
+.c-check input { width: 18px; height: 18px; margin: 0; cursor: pointer; accent-color: var(--accent); }
+.c-name { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.c-name a { display: flex; align-items: center; gap: 10px; min-width: 0; color: var(--text); padding: 4px 0; }
+.c-name a:hover .nm { color: var(--accent); text-decoration: underline; }
+.ico { width: 24px; height: 24px; color: var(--muted); }
+/* Takes the icon's 24px slot but draws bigger into the surrounding padding, so rows keep their height. */
+.thumb {
+  width: 36px; height: 36px; margin: -6px; flex-shrink: 0; object-fit: cover;
+  border-radius: 6px; background: var(--surface-2);
+}
+.ico-folder { color: #e8a33d; }
+.ico-image { color: #3c9664; }
+.ico-video { color: #d6455d; }
+.ico-audio { color: #8e5bd6; }
+.ico-archive { color: #a47148; }
+.ico-pdf { color: #d0453a; }
+.ico-android { color: #3ddc84; }
+.ico-text { color: #4a86d8; }
+.nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta { display: none; padding-left: 34px; color: var(--muted); font-size: 0.78rem; }
+.c-date { width: 150px; flex-shrink: 0; text-align: right; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.c-size { width: 80px; flex-shrink: 0; text-align: right; color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+.c-act { width: 32px; flex-shrink: 0; display: flex; justify-content: flex-end; }
+.row.head .c-date, .row.head .c-size { text-align: right; }
+
+.empty { text-align: center; color: var(--muted); padding: 48px 0; }
+
+.toast {
+  position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 3;
+  max-width: calc(100% - 32px); padding: 12px 18px; border-radius: 12px;
+  background: var(--text); color: var(--bg); box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Phones: date and size move under the name, so the name gets the full width. */
+@media (max-width: 640px) {
+  .bar .brand span { display: none; }
+  .search { flex: 1; }
+  .c-date, .c-size { display: none; }
+  .meta { display: block; }
+  .row { gap: 10px; padding: 4px 6px; }
+  .row.head .c-date, .row.head .c-size { display: block; width: auto; }
+  /* Icon-only toolbar on phones, so the pinned area stays one row high. */
+  .toolbar { flex-wrap: nowrap; gap: 6px; overflow-x: auto; }
+  .toolbar .btn { padding: 0; width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
+  .toolbar .btn span { display: none; }
+  .toolbar .spacer { flex: 1 0 4px; }
+  .infobar { padding: 0 48px 6px 6px; font-size: 0.8rem; }
+}

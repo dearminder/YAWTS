@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">YAWTS</string>
+
+    <string name="cd_settings">Settings</string>
+    <string name="cd_stop_server">Stop server</string>
+    <string name="cd_start_server">Start server</string>
+    <string name="cd_back">Back</string>
+    <string name="cd_share">Share link</string>
+
+    <!-- Main screen -->
+    <string name="main_hint">Tap the button to enable server available over Wi-Fi. Open the address in any browser on the same network.</string>
+    <string name="toast_copied">Copied to clipboard</string>
+    <string name="server_link_label">Open in a browser (tap to copy)</string>
+    <string name="webdav_link_label">Network drive (tap to copy)</string>
+    <string name="error_no_ip">Could not determine an IP address. Check that the phone is connected to Wi-Fi or its hotspot is on.</string>
+    <string name="error_port_unavailable">Could not start the server on port %1$d - it may be already used. Pick a different port in Settings.</string>
+    <string name="error_https_failed">HTTPS could not be set up on this device, using HTTP.</string>
+    <string name="restart_needed">Restart the server to apply the new settings.</string>
+    <string name="share_chooser_title">Share server link</string>
+
+    <string name="settings_title">Settings</string>
+
+    <!-- Server section -->
+    <string name="settings_section_server">Server</string>
+    <string name="port_label">Port</string>
+    <string name="port_helper">Takes effect the next time the server starts.</string>
+    <string name="port_invalid">Enter a port between %1$d and %2$d.</string>
+    <string name="password_label">Password</string>
+    <string name="password_helper">Leave empty to allow anyone on the network.</string>
+    <string name="password_show">Show</string>
+    <string name="password_hide">Hide</string>
+    <string name="https_switch_label">Use HTTPS</string>
+    <string name="https_helper">Without your own certificate a self-signed one is generated, so browsers show a security warning - that\'s expected, just confirm to continue. Windows only maps an HTTPS drive with a certificate it trusts.</string>
+
+    <!-- WebDAV section -->
+    <string name="settings_section_webdav">Network drive (WebDAV)</string>
+    <string name="settings_webdav_enable_label">Allow mounting as a network drive</string>
+
+    <!-- Security section -->
+    <string name="settings_section_security">Security</string>
+    <string name="settings_allow_delete_label">Allow deleting files</string>
+    <string name="settings_allow_delete_helper">Applies to both the web page and the network drive.</string>
+
+    <!-- Language section -->
+    <string name="settings_section_language">Language</string>
+    <string name="language_system">System default</string>
+
+    <!-- Date format section -->
+    <string name="settings_section_date">Date format</string>
+    <string name="settings_date_format_label">Date on the web page</string>
+
+    <!-- Appearance section -->
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_theme_label">Theme</string>
+    <string name="theme_system">System</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_dynamic_color_label">Dynamic color (Material You)</string>
+    <string name="settings_dynamic_color_helper">Matches the app\'s colors to your wallpaper.</string>
+
+    <!-- Notifications section -->
+    <string name="settings_section_notifications">Notifications</string>
+    <string name="notifications_granted">Notifications are enabled.</string>
+    <string name="notifications_not_granted">Notifications are turned off, so you won\'t see the server address or a Stop button.</string>
+    <string name="notifications_open_settings">Open notification settings</string>
+
+    <!-- Onboarding: first-launch permission screens, shown one at a time -->
+    <string name="onboarding_storage_title">Allow file access</string>
+    <string name="onboarding_storage_description">YAWTS needs full storage access to browse, share, and receive your files. Turn the permission on, then come back here.</string>
+    <string name="onboarding_grant_access">Grant access</string>
+    <string name="onboarding_notifications_title">Enable notifications</string>
+    <string name="onboarding_notifications_description">While it\'s running, YAWTS shows a notification with the server address and a Stop button.</string>
+    <string name="onboarding_enable_notifications">Enable notifications</string>
+    <string name="onboarding_skip">Not now</string>
+
+    <!-- Background-service notification -->
+    <string name="notif_channel_name">Background server</string>
+    <string name="notif_starting">Starting server…</string>
+    <string name="notif_title">YAWTS is running</string>
+    <string name="notif_open_url">Open %1$s</string>
+    <string name="notif_no_ip">Files are being shared on the local network</string>
+    <string name="notif_stop_action">Stop</string>
+
+    <!-- Own HTTPS certificate -->
+    <string name="cert_label">HTTPS certificate</string>
+    <string name="cert_generated">Generated automatically (self-signed)</string>
+    <string name="cert_custom">Your own: %1$s, valid until %2$s</string>
+    <string name="cert_load">Load .p12 / .pfx</string>
+    <string name="cert_remove">Use generated</string>
+    <string name="cert_helper">A PKCS#12 file with the certificate and its private key. From PEM files: openssl pkcs12 -export -legacy -in cert.pem -inkey key.pem -out cert.p12</string>
+    <string name="cert_password_title">Certificate password</string>
+    <string name="cert_invalid">Wrong password, or the file isn\'t a certificate with a private key.</string>
+    <string name="cert_loaded">Certificate loaded. Restart the server to use it.</string>
+    <string name="cert_read_failed">Could not read the file.</string>
+
+    <!-- Device name and discovery -->
+    <string name="device_name_label">Device name</string>
+    <string name="device_name_preview">Shown as: %1$s</string>
+    <string name="device_name_helper" formatted="false">Your own text used for the web page title and on the network. Available placeholders:</string>
+    <string name="discovery_label">Visible on the network</string>
+    <string name="discovery_helper">Announces the phone via SSDP/UPnP and DNS-SD (Bonjour)</string>
+
+    <!-- Thumbnails -->
+    <string name="thumbnails_label">Thumbnails on the web page</string>
+    <string name="thumbnails_helper">Shows photo thumbnails and song cover art in the file list. Impact performance.</string>
+
+    <!-- About and developer options -->
+    <string name="about_version">Version %1$s</string>
+    <string name="cd_github">Open on GitHub</string>
+
+    <!-- Updates -->
+    <string name="settings_section_updates">Updates</string>
+    <string name="update_auto_label">Check for updates at startup</string>
+    <string name="update_auto_helper">Looks for a newer release on GitHub when the app opens</string>
+    <string name="update_check">Check now</string>
+    <string name="update_installed">Installed version: %1$s</string>
+    <string name="update_checking">Checking for updates…</string>
+    <string name="update_up_to_date">You have the latest version</string>
+    <string name="update_check_failed">Couldn\'t check for updates</string>
+    <string name="update_available_short">Version %1$s is available</string>
+    <string name="update_available_title">Update available</string>
+    <string name="update_available_text">Version %1$s is available (you have %2$s).</string>
+    <string name="update_install">Download and install</string>
+    <string name="update_open_page">Open release page</string>
+    <string name="update_later">Later</string>
+    <string name="update_downloading">Downloading…</string>
+    <string name="update_download_failed">Download failed</string>
+    <plurals name="dev_taps_left">
+        <item quantity="one">%d more tap to unlock developer options</item>
+        <item quantity="other">%d more taps to unlock developer options</item>
+    </plurals>
+    <string name="dev_unlocked">Developer options unlocked</string>
+    <string name="dev_already_unlocked">There is nothing more</string>
+    <string name="settings_section_developer">Developer options</string>
+    <string name="dev_crash_reports_label">Save crash reports</string>
+    <string name="dev_crash_reports_helper">When the app crashes, or the server hits an unexpected error, the details are saved to a file.</string>
+    <string name="dev_server_logs_label">Save server logs</string>
+    <string name="dev_server_logs_helper">Every request (address, method, path, status, time) and server error, one file per day.</string>
+    <string name="dev_logs_location">Saved in %1$s - also reachable through the web page.</string>
+    <string name="dev_hide">Turn off developer options</string>
+</resources>

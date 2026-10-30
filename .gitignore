@@ -1,0 +1,42 @@
+# === Kotlin / Java ===
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+hs_err_pid*
+replay_pid*
+
+# Kotlin Gradle plugin data
+.kotlin/
+
+# === Android / Gradle ===
+.gradle/
+build/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+*.aab
+*.ap_
+*.jks
+*.keystore
+*.dex
+*.p12
+bin/
+gen/
+out/
+
+
+!gradle/wrapper/gradle-wrapper.jar
+
+# === IDE ===
+.acside/
+.idea/
+*.iml
+.vscode/
+
+# === System ===
+.DS_Store
+Thumbs.db
